@@ -60,7 +60,7 @@
   $("#start-input").val("");
   $("#frequency-input").val("");
 
-});
+
 
 
      // Uploads employee data to the database
@@ -96,11 +96,11 @@ console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
   
 // Difference between the times
 var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-console.log("DIFFERENCE IN TIME: " + diffTime);
+//console.log("DIFFERENCE IN TIME: " + diffTime);
 
     // Time apart (remainder)
     var tRemainder = diffTime % tFrequency;
-    console.log(tRemainder);
+    //console.log(tRemainder);
 
     // Minute Until Train
     var tMinutesTillTrain = tFrequency - tRemainder;
@@ -110,16 +110,20 @@ console.log("DIFFERENCE IN TIME: " + diffTime);
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
  
-    // Create a new row
+    //==================== Create a new row ================================
 
     var newRow = $("<tr>").append(
       $("<td>").text(train),
       $("<td>").text(destination),
+      $("<td>").text(frequency),
       $("<td>").text(nextTrain),
       $("<td>").text(tMinutesTillTrain)
     );
   
     // Append the new row to the table
-    $("#train-table > tbody").append(newRow);
+    $("#Train-table > tbody").append(newRow);
+
   });
+
+});
   
